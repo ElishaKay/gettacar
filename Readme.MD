@@ -45,5 +45,14 @@ a) Use NodeJS, React repo on github.
 --> Use the flipping cards feature of bootstrap
 --> User React search feature code from MAH Repo.
 --> For Search Feature: Create listener on every letter typed. when user lifts finger, frontend should send request to server for the results of the given search & the dom should update automatically onClick
---> The attached CSV (xlsx) file should be converted into JSON
---> The data of the JSON file, should be injected into the CarsXE API Calls -> Which are triggered every time that a button is released
+--> (DONE) The attached CSV (xlsx) file should be converted into JSON
+--> The data of the JSON file, should be injected into the CarsXE API Calls -> Which are triggered every time that a button is clicked 
+
+=>Redis Idea: When user interacts with the DOM, send the filters to the server. Check if 21 items that match those filters are available within the Redis Cache.
+...
+
+if there are less than 21 cars, make a server side HTTP Request for 21 - cachedCars.length.
+
+res.send({cars})
+
+Example API Call: https://api.carsxe.com/images?key=${process.env.CARSXE_KEY}&year=2018&make=toyota&model=tacoma&color=blue&format=json
