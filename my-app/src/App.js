@@ -32,10 +32,10 @@ const Countries = [
 class App extends Component {
 
   state = {
-    articles:[],
-    selectedCountry: '',
-    selectedCategory: '',
-    ip: ''
+    cars:[],
+    selectedMake: '',
+    selectedModel: '',
+    search: ''
   }
 
   componentDidMount(){
@@ -65,7 +65,7 @@ class App extends Component {
   }
 
   handleIPChange(event) {
-    this.setState({ip: event.target.value});
+    this.setState({search: event.target.value});
   }
 
   handleIPSubmit(event){
