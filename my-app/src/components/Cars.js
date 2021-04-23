@@ -6,6 +6,27 @@ export const Cars = ({cars}) => {
     console.log('articles length:::', cars.length)
     if (cars.length === 0) return null
 
+    const showCarManufactures = car =>
+        car.make.map((c, i) => (
+            <Link key={i} href={`/categories/${c.slug}`}>
+                <a className="btn btn-primary mr-1 ml-1 mt-3">{c.name}</a>
+            </Link>
+        ));
+
+    const showCarModels = car =>
+        car.model.map((c, i) => (
+            <Link key={i} href={`/tags/${c.slug}`}>
+                <a className="btn btn-outline-primary mr-1 ml-1 mt-3">{c.name}</a>
+            </Link>
+        ));
+
+    const showCarColors = car =>
+        car.colors.map((t, i) => (
+            <Link key={i} href={`/tags/${c.slug}`}>
+                <a className="btn btn-outline-primary mr-1 ml-1 mt-3">{c.name}</a>
+            </Link>
+        ));
+
     const showAllCars = () => {
         return cars.map((car, i) => {
             return (
