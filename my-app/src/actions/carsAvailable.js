@@ -1,4 +1,4 @@
-[
+exports.carsAvailable = [
  {
    "car_id": 574424,
    "make": "Hyundai",

@@ -48,6 +48,10 @@ a) Use NodeJS, React repo on github.
 --> (DONE) The attached CSV (xlsx) file should be converted into JSON
 --> The data of the JSON file, should be injected into the CarsXE API Calls -> Which are triggered every time that a button is clicked 
 
+
+
+=> Simple idea for getting images into the dataset - writing a mongo script which loops through all items within the dataset, fetches and image, and saves it in the database. 
+
 =>Redis Idea: When user interacts with the DOM, send the filters to the server. Check if 21 items that match those filters are available within the Redis Cache.
 ...
 
@@ -56,3 +60,8 @@ if there are less than 21 cars, make a server side HTTP Request for 21 - cachedC
 res.send({cars})
 
 Example API Call: https://api.carsxe.com/images?key=${process.env.CARSXE_KEY}&year=2018&make=toyota&model=tacoma&color=blue&format=json
+
+
+
+
+
