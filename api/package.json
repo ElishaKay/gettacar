@@ -10,10 +10,12 @@
   },
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "geoip-lite": "^1.4.2",
     "gnews": "^1.0.3",
     "http-proxy-middleware": "^1.0.4",
+    "mongoose": "^5.12.5",
     "morgan": "^1.10.0",
     "rss-parser": "^3.10.0"
   },

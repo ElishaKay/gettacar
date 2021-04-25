@@ -1,2 +1,2 @@
-News App
+Cars App
 
