@@ -13,7 +13,7 @@ const carSchema = new mongoose.Schema(
         Model: {
             type: String
         },
-        Color: {
+        yellow: {
             type: String
         }
     },
