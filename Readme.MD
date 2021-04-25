@@ -19,7 +19,9 @@ more appealing and colorful.
 Goal:
 
 Catalog’s first page to have at least 5 different colors of cars
+
 Requirements:
+
 1. Build a small app with a basic Car model:
 a. CarID
 b. Make
@@ -34,6 +36,7 @@ etc)
 5. Write a Unit Test which validates your code
 
 Any questions?
+
 Email me at nurit.basson@gettacar.com
 If for some reason I didn’t reply - make an assumption and move on
 ----------------------------------
