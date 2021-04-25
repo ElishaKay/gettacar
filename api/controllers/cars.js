@@ -1,7 +1,3 @@
-const news = require('gnews');
-const geoip = require('geoip-lite');
-const {countryCodes} = require('../helpers/countryCodes');
-
 exports.getCars = async (req, res) => {
   console.log('api/cars called!')
   const headlines = await news.headlines({n : 9});

@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Header } from './components/Header'
 
-import { getAllArticles,
+import { getCarsAndFilters,
           getCategoryArticles,
           getCountryArticles,
           getCountryArticlesByIP
@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    getAllFilters()
+    getCarsAndFilters()
       .then(response => {
         let {makes, models, colors} = response;
         this.setState({makes, models, colors})

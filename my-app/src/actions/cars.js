@@ -1,10 +1,10 @@
 
-export async function getAllArticles() {
-    const response = await fetch('/api/articles');
+export async function getCarsAndFilters() {
+    const response = await fetch('/api/cars');
     return await response.json();
 }
 
-export async function getCategoryArticles(category) {
+export async function getAllFilters(category) {
 	console.log('category in getCategoryArticles service', category);
 
     const response = await fetch(`/api/articles/category/${category}`);
