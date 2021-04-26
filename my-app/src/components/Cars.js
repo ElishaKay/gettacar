@@ -3,7 +3,7 @@ import FlipCard from './FlipCard';
 
 export const Cars = ({cars}) => {
 
-    console.log('articles length:::', cars.length)
+    console.log('cars length:::', cars.length)
     if (cars.length === 0) return null
 
     const showCarManufactures = car =>
@@ -37,27 +37,13 @@ export const Cars = ({cars}) => {
         });
     };
 
-    const CarRow = (car,index) => {
-        return(
-              <li key = {index}>
-                 <h3>{car.title}</h3>
-                  <p>
-                    {car.contentSnippet}
-                  </p>
-                  <a href={car.link}>Read</a>
-              </li>
-          )
-    }
-
-    const carTable = cars.map((car,index) => CarRow(car,index))
-
     return(
-        <div>
+        <React.Fragment>
             <section className="cars-container" id="cars-container">
               <ul>
-                {carTable}
+                {showAllCars()}
               </ul>
             </section>
-        </div>
+        </React.Fragment>
     )
 }

@@ -4,7 +4,7 @@ import React from 'react'
 const FlipCard = ({ car }) => {
     
     const getFeaturedImage = car => {
-        return car.replace(".jpg", ".SL375.jpg"); 
+        return car.image
     }
         
 

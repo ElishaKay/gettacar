@@ -28,16 +28,17 @@ class App extends Component {
   componentDidMount(){
     getCarsAndFilters()
       .then(response => {
-        let {makes, models, colors} = response;
-        this.setState({makes, models, colors})
+        let {uniqueMakes, uniqueModels, uniqueColors} = response.allFilters;
+        let {cars} = response;
+        this.setState({cars, makes: uniqueMakes, models: uniqueModels, colors: uniqueColors})
       });
   }
 
   // onSelectCategory(opt){
   //   let category = opt.value;
   //   getCategoryArticles(opt.value)
-  //     .then(articles => {
-  //       console.log('articles', articles)
+  //     .then(cars => {
+  //       console.log('cars', cars)
   //       this.setState({selectedMake: category, selectedCountry: '', cars})
   //     });
   // }
@@ -45,9 +46,9 @@ class App extends Component {
   // onSelectCountry(opt){
   //   console.log(opt)
   //   getCountryArticles(opt.value)
-  //     .then(articles => {
-  //       console.log('articles', articles)
-  //       this.setState({selectedCountry: opt.value, selectedCategory: '', articles, ip: ''})
+  //     .then(cars => {
+  //       console.log('cars', cars)
+  //       this.setState({selectedCountry: opt.value, selectedCategory: '', cars, ip: ''})
   //     });
   // }
 
@@ -60,8 +61,8 @@ class App extends Component {
 
   //   getCountryArticlesByIP(this.state.ip)
   //     .then(response => {
-  //       console.log('articles', response.articles)
-  //       this.setState({selectedCategory: '', selectedCountry: response.selectedCountry, articles: response.headlines})
+  //       console.log('cars', response.cars)
+  //       this.setState({selectedCategory: '', selectedCountry: response.selectedCountry, cars: response.headlines})
   //     });
   // }
 
@@ -103,11 +104,11 @@ class App extends Component {
 
         <center>
           <h1 className="currently-viewing">{selectedCategory || selectedCountry}</h1>
-        </center>
+        </center>*/
 
         <div >
-          <Articles articles={this.state.articles}></Articles>
-        </div>*/}
+          <Cars cars={this.state.cars}></Cars>
+        </div>}
 
       </div>
     );
