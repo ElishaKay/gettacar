@@ -8,11 +8,19 @@ exports.getCarsAndFilters = async (req, res) => {
 
   let uniqueMakes = uniqueValues(cars, 'make')
   let uniqueModels = uniqueValues(cars, 'model')
-  let uniqueColors = uniqueValues(cars, 'color')
+  // let uniqueColors = uniqueValues(cars, 'color')
+  let uniqueColors = ["Red","White","Blue","Orange","Purple","Yellow","Gold","Brown","Tan","Green","Silver","Black","White","Gray"]
 
-  let allFilters = {uniqueMakes, uniqueModels, uniqueColors}
+  let allFilters = {uniqueMakes, uniqueModels}
 
-  res.json({cars, allFilters});
+  let varietyOfCars = [];
+  colorIndex = 0;
+
+  uniqueColors.forEach(function (color) {
+      varietyOfCars.push(cars.find(element => element.color==color));
+  })
+
+  res.json({cars: varietyOfCars, allFilters});
 }
 
 exports.getCarsByMake = async (req, res) => {

@@ -33,9 +33,9 @@ class App extends Component {
   componentDidMount(){
     getCarsAndFilters()
       .then(response => {
-        let {uniqueMakes, uniqueModels, uniqueColors} = response.allFilters;
+        let {uniqueMakes, uniqueModels} = response.allFilters;
         let {cars} = response;
-        this.setState({cars, makes: selectify(uniqueMakes), models: selectify(uniqueModels), colors: uniqueColors})
+        this.setState({cars, makes: selectify(uniqueMakes), models: selectify(uniqueModels)})
       });
   }
 

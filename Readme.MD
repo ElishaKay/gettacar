@@ -52,7 +52,6 @@ a) Use NodeJS, React repo on github.
 --> The data of the JSON file, should be injected into the CarsXE API Calls -> Which are triggered every time that a button is clicked 
 
 
-
 => Simple idea for getting images into the dataset - writing a mongo script which loops through all items within the dataset, fetches and image, and saves it in the database. 
 
 =>Redis Idea: When user interacts with the DOM, send the filters to the server. Check if 21 items that match those filters are available within the Redis Cache.
