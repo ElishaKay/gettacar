@@ -4,13 +4,18 @@ import './App.css';
 import { Header } from './components/Header'
 
 import { getCarsAndFilters,
-          getCategoryArticles,
-          getCountryArticles,
-          getCountryArticlesByIP
+          getCarsByMake,
+          getCarsByModel,
+          getCarsBySearch
        } from './actions/cars'
 
 import { Cars } from './components/Cars'
 import Select from 'react-select';
+const selectify= (filters)=>{
+  return filters.map((filter)=>{
+    return {label: filter, value: filter} 
+  })
+}
 
 class App extends Component {
 
@@ -30,72 +35,73 @@ class App extends Component {
       .then(response => {
         let {uniqueMakes, uniqueModels, uniqueColors} = response.allFilters;
         let {cars} = response;
-        this.setState({cars, makes: uniqueMakes, models: uniqueModels, colors: uniqueColors})
+        this.setState({cars, makes: selectify(uniqueMakes), models: selectify(uniqueModels), colors: uniqueColors})
       });
   }
 
-  // onSelectCategory(opt){
-  //   let category = opt.value;
-  //   getCategoryArticles(opt.value)
-  //     .then(cars => {
-  //       console.log('cars', cars)
-  //       this.setState({selectedMake: category, selectedCountry: '', cars})
-  //     });
-  // }
+  onSelectMake(opt){
+    let make = opt.value;
+    getCarsByMake(opt.value)
+      .then(cars => {
+        console.log('cars', cars)
+        this.setState({selectedMake: make, selectedModel: '', cars})
+      });
+  }
 
-  // onSelectCountry(opt){
-  //   console.log(opt)
-  //   getCountryArticles(opt.value)
-  //     .then(cars => {
-  //       console.log('cars', cars)
-  //       this.setState({selectedCountry: opt.value, selectedCategory: '', cars, ip: ''})
-  //     });
-  // }
+  onSelectModel(opt){
+    console.log(opt)
+    getCarsByModel(opt.value)
+      .then(cars => {
+        console.log('cars', cars)
+        this.setState({selectedModel: opt.value, selectedMake: '', cars, search: ''})
+      });
+  }
 
-  // handleIPChange(event) {
-  //   this.setState({search: event.target.value});
-  // }
+  handleSearchChange(event) {
+    this.setState({search: event.target.value});
+  }
 
-  // handleIPSubmit(event){
-  //   event.preventDefault();
+  handleSearchSubmit(event){
+    event.preventDefault();
 
-  //   getCountryArticlesByIP(this.state.ip)
-  //     .then(response => {
-  //       console.log('cars', response.cars)
-  //       this.setState({selectedCategory: '', selectedCountry: response.selectedCountry, cars: response.headlines})
-  //     });
-  // }
+    getCarsBySearch(this.state.search)
+      .then(response => {
+        console.log('cars', response.cars)
+        let {cars} = response;
+        this.setState({selectedMake: '', selectedModel: '', cars})
+      });
+  }
 
   render() {
-    let {selectedCategory, selectedCountry} = this.state;
+    let {makes, models, search, selectedMake, selectedModel} = this.state;
 
     return (
       <div className="App">
         <Header></Header>
-        {/*<div className="row filter-options">
+        <div className="row filter-options">
             <div className="col-md-2">
-                Search By Category
+                Search By Make
                 <Select
-                  options={Categories}
-                  value={selectedCategory || ''}
-                  onChange={this.onSelectCategory.bind(this)}
+                  options={makes}
+                  value={selectedMake || ''}
+                  onChange={this.onSelectMake.bind(this)}
                 />  
             </div>
             <div className="col-md-2">
-              Search By Country
+              Search By Model
                 <Select
-                  value={selectedCountry || ''}
-                  options={Countries}
-                  onChange={this.onSelectCountry.bind(this)}
+                  value={selectedModel || ''}
+                  options={models}
+                  onChange={this.onSelectModel.bind(this)}
                 />  
             </div>
-            <form className="col-md-2" onSubmit={this.handleIPSubmit.bind(this)}>
+            <form className="col-md-2" onSubmit={this.handleSearchSubmit.bind(this)}>
               <label>
-                Search By IP
+                Search By Anything
                 <input className="form-control" 
                   type="text" 
-                  value={this.state.ip}
-                  onChange={this.handleIPChange.bind(this)}
+                  value={this.state.search}
+                  onChange={this.handleSearchChange.bind(this)}
                 />
               </label>
               <input type="submit" value="Submit" />
@@ -103,12 +109,12 @@ class App extends Component {
         </div>
 
         <center>
-          <h1 className="currently-viewing">{selectedCategory || selectedCountry}</h1>
-        </center>*/
+          <h1 className="currently-viewing">{selectedMake || selectedModel}</h1>
+        </center>
 
         <div >
           <Cars cars={this.state.cars}></Cars>
-        </div>}
+        </div>
 
       </div>
     );

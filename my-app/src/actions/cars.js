@@ -4,23 +4,23 @@ export async function getCarsAndFilters() {
     return await response.json();
 }
 
-export async function getAllFilters(category) {
-	console.log('category in getCategoryArticles service', category);
+export async function getCarsByMake(make) {
+	console.log('make in getCarsByMake action', make);
 
-    const response = await fetch(`/api/articles/category/${category}`);
+    const response = await fetch(`/api/cars/make/${make}`);
     return await response.json();
 }
 
-export async function getCountryArticles(country) {
-	console.log('country in getCountryArticles service', country);
+export async function getCarsByModel(model) {
+	console.log('model in getCarsByModel service', model);
 
-    const response = await fetch(`/api/articles/country/${country}`);
+    const response = await fetch(`/api/cars/model/${model}`);
     return await response.json();
 }
 
-export async function getCountryArticlesByIP(ip) {
-	console.log('IP in getCountryArticlesByIP service', ip);
+export async function getCarsBySearch(search) {
+	console.log('search', search);
 
-    const response = await fetch(`/api/articles/countrybyip/${ip}`);
+    const response = await fetch(`/api/cars/search/${search}`);
     return await response.json();
 }

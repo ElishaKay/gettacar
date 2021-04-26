@@ -4,7 +4,7 @@ import React from 'react'
 const FlipCard = ({ car }) => {
     
     const getFeaturedImage = car => {
-        return car.imageURL
+        return car.imageURL ? car.imageURL : 'https://image.freepik.com/free-vector/sold-out-price-tag-sign_123447-162.jpg'
     }
         
 
