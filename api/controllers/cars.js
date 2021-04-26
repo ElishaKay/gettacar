@@ -18,9 +18,9 @@ exports.getCarsAndFilters = async (req, res) => {
 
 exports.getCarsByMake = async (req, res) => {
   console.log('api/articles category called!');
-
+  const cars = await Car.find({make: req.params.make});
   
-  res.json(headlines);
+  res.json({cars});
 }
 
 
