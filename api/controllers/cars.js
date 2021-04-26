@@ -8,10 +8,10 @@ exports.getCarsAndFilters = async (req, res) => {
   let uniqueModels = uniqueValues(cars, 'model')
   let uniqueColors = uniqueValues(cars, 'color')
 
-  let AllFilters = {uniqueMakes, uniqueModels, uniqueColors}
-  console.log('AllFilters: ', AllFilters)
+  let allFilters = {uniqueMakes, uniqueModels, uniqueColors}
+  // console.log('AllFilters: ', AllFilters)
 
-  res.json(cars);
+  res.json({cars, allFilters});
 }
 
 exports.getCarsByMake = async (req, res) => {

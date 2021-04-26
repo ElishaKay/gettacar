@@ -3,20 +3,20 @@ const { ObjectId } = mongoose.Schema;
 
 const carSchema = new mongoose.Schema(
     {
-        CarID: {
+        carID: {
             type: String,
             index: true
         },
-        Make: {
+        make: {
             type: String
         },
-        Model: {
+        model: {
             type: String
         },
-        Color: {
+        color: {
             type: String
         },
-        Image: {
+        imageURL: {
             type: String
         }
     },
