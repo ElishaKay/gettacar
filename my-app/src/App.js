@@ -61,6 +61,12 @@ class App extends Component {
 
   handleSearchChange(event) {
     this.setState({search: event.target.value});
+
+    getCarsBySearch(this.state.search)
+      .then(response => {
+        let {cars} = response;
+        this.setState({selectedMake: '', selectedModel: '', cars})
+      });
   }
 
   handleSearchSubmit(event){
@@ -68,7 +74,6 @@ class App extends Component {
 
     getCarsBySearch(this.state.search)
       .then(response => {
-        console.log('cars', response.cars)
         let {cars} = response;
         this.setState({selectedMake: '', selectedModel: '', cars})
       });

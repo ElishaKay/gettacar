@@ -29,6 +29,9 @@ const FlipCard = ({ car }) => {
                 <div href={`/cars/${car.carID}`}>
                      <a className="btn btn-primary pt-2">{car.model}</a>
                 </div>
+                <div href={`/cars/${car.carID}`}>    
+                    <h6 className="pt-3 pb-3 font-weight-bold">{car.color}</h6>
+                </div>
             </div>
         </div>
     );

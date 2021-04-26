@@ -27,13 +27,12 @@ exports.getCarsByModel = async (req, res) => {
 
 exports.getCarsBySearch = async (req, res) => {
   console.log('ran getCountryNewsByIP controller func');
-  let ip = req.params.ip;
-  console.log('ip: ',ip)
+  let search = req.params.search.toLowerCase();
+  search = search.charAt(0).toUpperCase() + search.slice(1);
 
-  let geo = geoip.lookup(ip);
-  console.log('geo',geo);
-  let selectedCountry = countryCodes[geo.country];
+  const cars = await Car.find({$or:[{color: { "$regex": search }},
+                                    {make:{ "$regex": search }},
+                                    {model:{ "$regex": search }}]});
 
-  const headlines = await news.geo(selectedCountry.toUpperCase(), {n : 9});
-  res.json({selectedCountry, headlines});
+  res.json({cars});
 }
