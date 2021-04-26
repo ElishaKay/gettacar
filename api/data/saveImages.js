@@ -10,20 +10,8 @@ mongoose
     .catch(err => {
         console.log(err);
     });
-// console.log('testData: ',carsAvailable) 
-
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
-}
 
 carsAvailable.forEach(function (car) {
-	// sleep(2000);
-
 	let { carID, make, model, color } = car; 
 
 	axios.get(`https://api.carsxe.com/images?key=${process.env.CARSXE_KEY}&make=${make}&model=${model}&color=${color}&format=json`)
@@ -48,10 +36,4 @@ carsAvailable.forEach(function (car) {
 	  })  
   
 });
-
-
-//   .then(function () {
-//     // always executed
-//   });
-
 
