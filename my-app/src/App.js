@@ -22,11 +22,9 @@ class App extends Component {
   state = {
     makes: [],
     models: [],
-    colors: [],
     cars:[],
     selectedMake: '',
     selectedModel: '',
-    selectedColor: '',
     search: ''
   }
 
@@ -111,7 +109,6 @@ class App extends Component {
                   onChange={this.handleSearchChange.bind(this)}
                 />
               </label>
-              <input type="submit" value="Submit" />
             </form>
         </div>
 

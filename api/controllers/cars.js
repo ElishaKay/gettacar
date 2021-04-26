@@ -10,12 +10,9 @@ exports.getCarsAndFilters = async (req, res) => {
   let uniqueModels = uniqueValues(cars, 'model')
   // let uniqueColors = uniqueValues(cars, 'color')
   let uniqueColors = ["Red","White","Blue","Orange","Purple","Yellow","Gold","Brown","Tan","Green","Silver","Black","White","Gray"]
-
   let allFilters = {uniqueMakes, uniqueModels}
 
   let varietyOfCars = [];
-  colorIndex = 0;
-
   uniqueColors.forEach(function (color) {
       varietyOfCars.push(cars.find(element => element.color==color));
   })
