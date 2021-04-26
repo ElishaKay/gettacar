@@ -1,8 +1,10 @@
-const {carsAvailable:cars} = require('../data/carsAvailable')
+// const {carsAvailable:cars} = require('../data/carsAvailable')
+const Car = require('../models/Car');
 const uniqueValues = (data, key) => [...new Set(data.map(item => item[key]))];
 
 exports.getCarsAndFilters = async (req, res) => {
   console.log('api/cars called!')
+  const cars = await Car.find({});
 
   let uniqueMakes = uniqueValues(cars, 'make')
   let uniqueModels = uniqueValues(cars, 'model')

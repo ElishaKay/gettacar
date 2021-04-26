@@ -39,11 +39,11 @@ export const Cars = ({cars}) => {
 
     return(
         <React.Fragment>
-            <section className="cars-container" id="cars-container">
-              <ul>
-                {showAllCars()}
-              </ul>
-            </section>
+            <div className="container-fluid">
+                <div className="row">
+                    {showAllCars()}
+                </div>
+            </div>
         </React.Fragment>
     )
 }
