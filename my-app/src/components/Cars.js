@@ -8,23 +8,23 @@ export const Cars = ({cars}) => {
 
     const showCarManufactures = car =>
         car.make.map((c, i) => (
-            <Link key={i} href={`/categories/${c.slug}`}>
+            <div key={i} href={`/categories/${c.slug}`}>
                 <a className="btn btn-primary mr-1 ml-1 mt-3">{c.name}</a>
-            </Link>
+            </div>
         ));
 
     const showCarModels = car =>
         car.model.map((c, i) => (
-            <Link key={i} href={`/tags/${c.slug}`}>
+            <div key={i} href={`/tags/${c.slug}`}>
                 <a className="btn btn-outline-primary mr-1 ml-1 mt-3">{c.name}</a>
-            </Link>
+            </div>
         ));
 
     const showCarColors = car =>
-        car.colors.map((t, i) => (
-            <Link key={i} href={`/tags/${c.slug}`}>
+        car.colors.map((c, i) => (
+            <div key={i} href={`/tags/${c.slug}`}>
                 <a className="btn btn-outline-primary mr-1 ml-1 mt-3">{c.name}</a>
-            </Link>
+            </div>
         ));
 
     const showAllCars = () => {
@@ -37,7 +37,7 @@ export const Cars = ({cars}) => {
         });
     };
 
-    const CarRow = (cars,index) => {
+    const CarRow = (car,index) => {
         return(
               <li key = {index}>
                  <h3>{car.title}</h3>

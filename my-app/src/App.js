@@ -7,9 +7,9 @@ import { getCarsAndFilters,
           getCategoryArticles,
           getCountryArticles,
           getCountryArticlesByIP
-       } from './services/ArticleService'
+       } from './actions/cars'
 
-import { Articles } from './components/Articles'
+import { Cars } from './components/Cars'
 import Select from 'react-select';
 
 class App extends Component {
@@ -33,37 +33,37 @@ class App extends Component {
       });
   }
 
-  onSelectCategory(opt){
-    let category = opt.value;
-    getCategoryArticles(opt.value)
-      .then(articles => {
-        console.log('articles', articles)
-        this.setState({selectedMake: category, selectedCountry: '', cars})
-      });
-  }
+  // onSelectCategory(opt){
+  //   let category = opt.value;
+  //   getCategoryArticles(opt.value)
+  //     .then(articles => {
+  //       console.log('articles', articles)
+  //       this.setState({selectedMake: category, selectedCountry: '', cars})
+  //     });
+  // }
 
-  onSelectCountry(opt){
-    console.log(opt)
-    getCountryArticles(opt.value)
-      .then(articles => {
-        console.log('articles', articles)
-        this.setState({selectedCountry: opt.value, selectedCategory: '', articles, ip: ''})
-      });
-  }
+  // onSelectCountry(opt){
+  //   console.log(opt)
+  //   getCountryArticles(opt.value)
+  //     .then(articles => {
+  //       console.log('articles', articles)
+  //       this.setState({selectedCountry: opt.value, selectedCategory: '', articles, ip: ''})
+  //     });
+  // }
 
-  handleIPChange(event) {
-    this.setState({search: event.target.value});
-  }
+  // handleIPChange(event) {
+  //   this.setState({search: event.target.value});
+  // }
 
-  handleIPSubmit(event){
-    event.preventDefault();
+  // handleIPSubmit(event){
+  //   event.preventDefault();
 
-    getCountryArticlesByIP(this.state.ip)
-      .then(response => {
-        console.log('articles', response.articles)
-        this.setState({selectedCategory: '', selectedCountry: response.selectedCountry, articles: response.headlines})
-      });
-  }
+  //   getCountryArticlesByIP(this.state.ip)
+  //     .then(response => {
+  //       console.log('articles', response.articles)
+  //       this.setState({selectedCategory: '', selectedCountry: response.selectedCountry, articles: response.headlines})
+  //     });
+  // }
 
   render() {
     let {selectedCategory, selectedCountry} = this.state;
@@ -71,7 +71,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header></Header>
-        <div className="row filter-options">
+        {/*<div className="row filter-options">
             <div className="col-md-2">
                 Search By Category
                 <Select
@@ -107,7 +107,7 @@ class App extends Component {
 
         <div >
           <Articles articles={this.state.articles}></Articles>
-        </div>
+        </div>*/}
 
       </div>
     );

@@ -1,14 +1,23 @@
-exports.getCars = async (req, res) => {
-  console.log('api/cars called!')
-  const headlines = await news.headlines({n : 9});
+const {cars} = require('../data/carsAvailable')
+const uniqueValues = (data, key) => [...new Set(data.map(item => item[key]))];
 
-  res.json(headlines);
+exports.getCarsAndFilters = async (req, res) => {
+  console.log('api/cars called!')
+
+  let uniqueMakes = uniqueValues(cars, 'make')
+  let uniqueModels = uniqueValues(cars, 'model')
+  let uniqueColors = uniqueValues(cars, 'color')
+
+  let AllFilters = {uniqueMakes, uniqueModels, uniqueColors}
+  console.log('AllFilters: ', AllFilters)
+
+  res.json(cars);
 }
 
 exports.getCarsByMake = async (req, res) => {
   console.log('api/articles category called!');
 
-  const headlines = await news.topic(req.params.category.toUpperCase(), {n : 9});
+  
   res.json(headlines);
 }
 
