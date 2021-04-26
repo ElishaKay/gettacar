@@ -38,9 +38,9 @@ exports.getCarsBySearch = async (req, res) => {
   let search = req.params.search.toLowerCase();
   search = search.charAt(0).toUpperCase() + search.slice(1);
 
-  const cars = await Car.find({$or:[{color: { "$regex": search }},
-                                    {make:{ "$regex": search }},
-                                    {model:{ "$regex": search }}]});
+  const cars = await Car.find({$or:[{color: { "$regex": search, "$options": "i"}},
+                                    {make:{ "$regex": search, "$options": "i" }},
+                                    {model:{ "$regex": search, "$options": "i" }}]});
 
   res.json({cars});
 }
