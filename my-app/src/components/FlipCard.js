@@ -9,7 +9,7 @@ const FlipCard = ({ car }) => {
 
     return (
         //new
-        <div className="flip flip-horizontal">
+        <div id="flip-card" className="flip flip-horizontal">
             <div
                 className="front"
                 style={{
