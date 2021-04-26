@@ -1,3 +1,5 @@
+<img src="homepage.JPG"/>
+
 <h1>Start the NodeJS Server</h1>
 ```bash
 cd api
