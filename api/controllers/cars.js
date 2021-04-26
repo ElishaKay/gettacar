@@ -1,4 +1,4 @@
-const {cars} = require('../data/carsAvailable')
+const {carsAvailable:cars} = require('../data/carsAvailable')
 const uniqueValues = (data, key) => [...new Set(data.map(item => item[key]))];
 
 exports.getCarsAndFilters = async (req, res) => {
