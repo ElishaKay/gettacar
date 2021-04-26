@@ -53,8 +53,8 @@ class App extends Component {
   onSelectModel(opt){
     console.log(opt)
     getCarsByModel(opt.value)
-      .then(cars => {
-        console.log('cars', cars)
+      .then(response => {
+        let {cars} = response;
         this.setState({selectedModel: opt.value, selectedMake: '', cars, search: ''})
       });
   }

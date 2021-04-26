@@ -11,27 +11,21 @@ exports.getCarsAndFilters = async (req, res) => {
   let uniqueColors = uniqueValues(cars, 'color')
 
   let allFilters = {uniqueMakes, uniqueModels, uniqueColors}
-  // console.log('AllFilters: ', AllFilters)
 
   res.json({cars, allFilters});
 }
 
 exports.getCarsByMake = async (req, res) => {
-  console.log('api/articles category called!');
-  const cars = await Car.find({make: req.params.make});
-  
+  const cars = await Car.find({make: req.params.make});  
   res.json({cars});
 }
 
-
 exports.getCarsByModel = async (req, res) => {
-  console.log('api/articles country called!');
-
-  const headlines = await news.geo(req.params.country.toUpperCase(), {n : 9});
-  res.json(headlines);
+  const cars = await Car.find({model: req.params.model});  
+  res.json({cars});
 }
 
-exports.getCarsByColor = async (req, res) => {
+exports.getCarsBySearch = async (req, res) => {
   console.log('ran getCountryNewsByIP controller func');
   let ip = req.params.ip;
   console.log('ip: ',ip)
