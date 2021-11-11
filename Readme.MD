@@ -37,10 +37,6 @@ etc)
 4. Page size: 21 cars
 5. Write a Unit Test which validates your code
 
-Any questions?
-
-Email me at nurit.basson@gettacar.com
-If for some reason I didn’t reply - make an assumption and move on
 ----------------------------------
 Ideas for implementation:
 
